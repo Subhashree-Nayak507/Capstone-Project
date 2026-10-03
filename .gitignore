@@ -1,0 +1,9 @@
+build/
+*.o
+*.ko
+*.mod*
+*.symvers
+*.order
+.tmp_versions/
+*.csv
+*.log
