@@ -10,7 +10,6 @@
 
 namespace envmon {
 
-// ------------------------------------------------------------ KernelDevice --
 bool KernelDevice::open(std::string& err) {
     fd_ = ::open(path_.c_str(), O_RDONLY | O_NONBLOCK | O_CLOEXEC);
     if (fd_ < 0) {
@@ -50,7 +49,6 @@ bool KernelDevice::reset() {
     return fd_ >= 0 && ::ioctl(fd_, ENVMON_IOC_RESET) == 0;
 }
 
-// --------------------------------------------------------------- SimDevice --
 SimDevice::SimDevice(uint32_t period_ms, uint32_t seed)
     : rng_(seed), period_ms_(period_ms) {}
 
@@ -124,4 +122,4 @@ std::unique_ptr<IDevice> makeDevice(const Config& cfg) {
     return std::make_unique<KernelDevice>(cfg.device_path);
 }
 
-}  // namespace envmon
+}  

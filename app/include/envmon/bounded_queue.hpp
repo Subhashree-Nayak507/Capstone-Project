@@ -57,4 +57,4 @@ private:
     bool                    closed_{false};
 };
 
-}  // namespace envmon
+}

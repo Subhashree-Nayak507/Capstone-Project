@@ -18,4 +18,4 @@ inline Reading toReading(const envmon_sample& s) {
                    s.humidity_mpct / 1000.0, s.flags};
 }
 
-}  // namespace envmon
+} 

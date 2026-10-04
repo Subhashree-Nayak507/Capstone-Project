@@ -89,7 +89,6 @@ static inline s32 clamp_s32(s32 v, s32 lo, s32 hi)
 	return v < lo ? lo : (v > hi ? hi : v);
 }
 
-/* ---------------------------------------------------------------- timer -- */
 static void envmon_timer_fn(struct timer_list *t)
 {
 	struct envmon_dev *d = from_timer(d, t, timer);
@@ -132,7 +131,6 @@ static void envmon_timer_fn(struct timer_list *t)
 	wake_up_interruptible(&d->wq);
 }
 
-/* ------------------------------------------------------- file operations -- */
 static int envmon_open(struct inode *inode, struct file *filp)
 {
 	filp->private_data = edev;
@@ -254,7 +252,6 @@ static const struct file_operations envmon_fops = {
 	.llseek         = no_llseek,
 };
 
-/* ----------------------------------------------------------------- procfs -- */
 static int envmon_proc_show(struct seq_file *m, void *v)
 {
 	struct envmon_dev *d = edev;
@@ -275,7 +272,6 @@ static int envmon_proc_show(struct seq_file *m, void *v)
 	return 0;
 }
 
-/* --------------------------------------------------------- init / exit -- */
 static int __init envmon_init(void)
 {
 	struct envmon_dev *d;

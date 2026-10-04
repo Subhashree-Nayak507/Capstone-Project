@@ -28,4 +28,4 @@ struct Config {
     bool validate(std::string& err) const;
 };
 
-}  // namespace envmon
+}  

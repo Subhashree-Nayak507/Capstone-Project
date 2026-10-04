@@ -8,4 +8,4 @@ namespace envmon {
 bool sendCommand(const std::string& socket_path, const std::string& command,
                  std::string& reply, std::string& err, int timeout_ms = 2000);
 
-}  // namespace envmon
+} 

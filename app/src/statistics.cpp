@@ -32,4 +32,4 @@ double Statistics::movingAverage() const {
     return win_.empty() ? 0.0 : windowSum_ / static_cast<double>(win_.size());
 }
 
-}  // namespace envmon
+}  

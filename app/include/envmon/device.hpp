@@ -74,4 +74,4 @@ private:
 
 std::unique_ptr<IDevice> makeDevice(const Config& cfg);
 
-}  // namespace envmon
+} 

@@ -1,4 +1,4 @@
-// envmonctl - command-line client for the envmond control socket
+
 #include <iostream>
 #include <string>
 #include "envmon/ipc.hpp"

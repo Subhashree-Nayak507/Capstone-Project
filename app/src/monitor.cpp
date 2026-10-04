@@ -29,7 +29,6 @@ bool Monitor::start(std::string& err) {
         csv_ << "seq,timestamp_ns,temp_c,humidity_pct,state\n";
     }
 
-    // Unix-domain control socket
     listen_fd_ = ::socket(AF_UNIX, SOCK_STREAM | SOCK_CLOEXEC, 0);
     if (listen_fd_ < 0) { err = std::string("socket: ") + std::strerror(errno); return false; }
     sockaddr_un addr{};
@@ -223,4 +222,4 @@ std::string Monitor::formatStatus() {
     return o.str();
 }
 
-}  // namespace envmon
+} 

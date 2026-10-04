@@ -42,4 +42,4 @@ void Logger::log(LogLevel l, const std::string& msg) {
     if (file_.is_open()) file_ << line.str() << std::endl;
 }
 
-}  // namespace envmon
+}  

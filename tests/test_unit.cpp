@@ -10,7 +10,7 @@
 using namespace envmon;
 using namespace std::chrono_literals;
 
-// ---------------------------------------------------------- Statistics ----
+
 TEST(stats_basic) {
     Statistics s(3);
     for (double v : {2.0, 4.0, 4.0, 4.0, 5.0, 5.0, 7.0, 9.0}) s.add(v);
@@ -30,7 +30,6 @@ TEST(stats_empty_and_reset) {
     CHECK_NEAR(s.movingAverage(), 0.0, 1e-12);
 }
 
-// -------------------------------------------------------- AlertEngine ----
 static Reading R(double t, double h = 50.0) { Reading r; r.temp_c = t; r.humidity_pct = h; return r; }
 
 TEST(alert_escalation) {
@@ -62,7 +61,7 @@ TEST(alert_humidity_dominates) {
     CHECK(t.has_value() && t->to == AlertState::Critical);
 }
 
-// ------------------------------------------------------- BoundedQueue ----
+
 TEST(queue_fifo_and_drop_oldest) {
     BoundedQueue<int> q(3);
     for (int i = 1; i <= 5; ++i) q.push(i);
@@ -89,7 +88,6 @@ TEST(queue_producer_consumer_threads) {
     CHECK_EQ(sum, 5000LL * 4999 / 2);
 }
 
-// -------------------------------------------------------------- Config ----
 TEST(config_set_and_validate) {
     Config c; std::string err;
     CHECK(c.set("--period_ms", "100", err));
@@ -122,7 +120,7 @@ TEST(config_file_parsing) {
     CHECK(!c.loadFile("/nonexistent/file.conf", err));
 }
 
-// ----------------------------------------------------------- SimDevice ----
+
 TEST(sim_device_generates_in_range_and_sequence) {
     SimDevice d(10);
     std::string err; CHECK(d.open(err));

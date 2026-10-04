@@ -24,4 +24,4 @@ private:
     std::deque<double> win_;
 };
 
-}  // namespace envmon
+} 

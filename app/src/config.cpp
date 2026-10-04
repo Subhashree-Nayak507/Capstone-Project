@@ -16,7 +16,7 @@ bool parseBool(const std::string& v, bool& out) {
     if (v == "0" || v == "false" || v == "no" || v == "off") { out = false; return true; }
     return false;
 }
-}  // namespace
+}  
 
 bool Config::set(const std::string& rawKey, const std::string& value, std::string& err) {
     std::string key = rawKey;
@@ -93,4 +93,4 @@ bool Config::validate(std::string& err) const {
     return true;
 }
 
-}  // namespace envmon
+}  
